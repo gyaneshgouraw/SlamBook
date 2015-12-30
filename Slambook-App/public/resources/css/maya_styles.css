@@ -1,0 +1,124 @@
+.maya .table thead {font-size: 12px;}
+.maya .table > thead > tr > th {color:#999;}
+.maya .table-responsive {min-height: 0.01%;overflow-x: auto;}
+
+.maya .tab-content,.maya .nav-tabs {margin: 0 10px;}
+.maya .form-control {margin-bottom:10px;}
+.maya label {color: #848484; font-size: 12px;}
+.maya ol > li > ol {list-style: lower-alpha;margin-left: -20px;}
+
+.maya .panel-group {border-top: 0;}
+.maya .panel-title a {color: #2a6496;}
+
+.maya .collapse .panel-body .lastDiv {border-bottom: 0 none!Important; margin-bottom:0;}
+.maya .collapse .panel-heading {padding: 0;}
+.maya .collapse .panel-heading h4 a {display: block;width: 100%;text-decoration: none;padding: 8px 10px;}
+.maya .collapse .panel-body {padding: 8px 10px;}
+.maya .collapse .panel-body .form-group {margin:0!Important;}
+.maya .collapse .panel-body .form-group label span {font-weight: normal;}
+
+.maya .nav > li > a {padding:8px 10px;}
+.maya .nav > li > a:hover {background-color:transparent;}
+.maya .navbar-collapse {background-color: #fff;}
+
+.maya .tab-pane {background: #fff;border: 1px solid #ddd;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);margin-top: -1px; padding: 10px;}
+
+.maya h2 {font-size: 22px;}
+.maya h3 {font-size: 22px;}
+.maya h4 {font-size:18px; border-bottom: 1px solid #ddd; margin-top:20px;}
+.maya h4 span {font-size:14px;}
+
+.maya .modal-header, .maya .modal-body, .maya .modal-footer {padding: 5px;}
+.maya .modal-footer {margin-top: 5px;}
+
+.maya .popover-content {font-size:12px; padding: 5px;}
+
+/* Bootstrap css converted to theme ends here */
+
+/* Base CSS */
+.maya .mrgn {margin:10px;}
+.maya .mrgnLtHalf {margin-left:5px;}
+.maya .mrgnRtHalf {margin-right:5px;}
+.maya .mrgnTpHalf {margin-top:5px;}
+.maya .mrgnBtmHalf {margin-bottom:5px;}
+.maya .mrgnLt {margin-left:10px;}
+.maya .mrgnRt {margin-right:10px;}
+.maya .mrgnTp {margin-top:10px;}
+.maya .mrgnBtm {margin-bottom:10px;}
+.maya .mrgn.mrgn {margin:20px;}
+.maya .mrgnLt.mrgnLt {margin-left:20px;}
+.maya .mrgnRt.mrgnRt {margin-right:20px;}
+.maya .mrgnTp.mrgnTp {margin-top:20px;}
+.maya .mrgnBtm.mrgnBtm {margin-bottom:20px;}
+.maya .pdng {padding:10px;}
+.maya .pdngLt {padding-left:10px;}
+.maya .pdngRt{padding-right:10px;}
+.maya .pdngTp {padding-top:10px;}
+.maya .pdngBtm {padding-bottom:10px;}
+.maya .pdng.pdng {padding:20px;}
+.maya .pdngLt.pdngLt {padding-left:20px;}
+.maya .pdngRt.pdngRt {padding-right:20px;}
+.maya .pdngTp.pdngTp {padding-top:20px;}
+.maya .pdngBtm.pdngBtm {padding-bottom:20px;}
+
+.maya .noMrgn {margin: 0;}
+.maya .noMrgnLt {margin-left: 0;}
+.maya .noMrgnRt {margin-right: 0;}
+.maya .noMrgnBtm {margin-bottom: 0;}
+.maya .noMrgnTp {margin-top: 0;}
+.maya .noPdng {padding: 0;}
+.maya .noPdngLt {padding-left: 0;}
+.maya .noPdngRt {padding-right: 0;}
+.maya .noPdngBtm {padding-bottom: 0;}
+.maya .noPdngTp {padding-top: 0;}
+
+.maya .first, h1:first-child, h2:first-child, h3:first-child, h4:first-child {margin-top:0;}
+.maya .last, h1:last-child, h2:last-child, h3:last-child, h4:last-child {margin-bottom:0;}
+
+.maya .showHide {display: none;}
+
+/*Base Layout */
+#wrapper {width: 100%;margin: 0 auto; max-width: 1024px; position: relative;background:#2c2c2c;}
+.maya .static-side-right {width:200px; position: absolute; right:0; background: transparent}
+.maya .page-wrapper {position:relative; margin:0; padding:0 15px; background:#fff;}
+.maya .content-part {margin:0;}
+.maya .navbar-static-top {background:#f3f3f4; min-height:30px;}
+
+.maya .navbar-static-top .navbar-header {line-height:28px; padding-left:10px;}
+.maya .navbar-static-top .navbar-header .logo {margin-right:10px;}
+
+.maya .pace-done .static-side-right,.maya .pace-done .sidebar-header, .maya .pace-done li.active,.maya .pace-done #page-wrapper,.maya .pace-done .footer {-webkit-transition: all 0.5s;-moz-transition: all 0.5s;-o-transition: all 0.5s;transition: all 0.5s;}
+
+.maya .sidebar-header {padding:20px; color:#fff; border-bottom:1px solid #444;}
+
+.maya .sidebar-header span {padding:5px 0 0 0; display: block;}
+
+.maya .navbar-form-custom {float: left;}
+.maya .navbar-form-custom .form-control {background: transparent; border-color:transparent; box-shadow:none; margin: 0;}
+.maya .navbar-form-custom .form-group {margin: 0;}
+.maya .navbar-top-links {float: right;}
+.maya .navbar-top-links > li {display: inline-block;}
+.maya .navbar-top-links > li > a{color:#999c9e;}
+.maya .navbar-top-links > li > a:hover, .maya .navbar-top-links > li > a:focus {background:#ececec;}
+
+.maya .count-info .label {line-height: 12px;padding: 2px 5px;position: absolute;left:18px;top:0;}
+
+.maya .header {margin-bottom: 0;}
+.maya .wrapper-content {padding: 10px 0; min-height:600px;}
+
+.maya .footer {padding:10px 15px;  border-top:1px solid #e7eaec;}
+
+#nav-toggle {background:#2c2c2c;}
+
+.maya .static-side-right {color: #ffffff; display: none; width: 0}
+.maya .static-side-right .toggleDiv {padding:10px;}
+.maya .static-side-right p {margin: 0; padding: 5px 0 0;}
+.maya .static-side-right span.text-muted {display: block; padding: 5px 0 0;}
+
+.maya .actionBtns {width:110px;}
+
+.maya .toggleTR {
+    background: #F4F4F4;
+}
+label span {font-weight: normal;}
+.maya .checkbox label {font-weight: bold}

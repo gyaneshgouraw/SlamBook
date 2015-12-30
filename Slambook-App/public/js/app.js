@@ -1,0 +1,11 @@
+angular.module('sampleApp',
+    ['ui.router',
+    'ngRoute',
+        'appRoutes',
+        'MainCtrl',
+        'LoginModuleCtrl',
+        'DashboardCtrl',
+        'ngTable',
+        'todoService',
+        'ui.bootstrap',
+        'blockUI']);

@@ -1,0 +1,150 @@
+<style>
+    .active-appointments, .settled-appointments, .pending-appointments, .no-active-appointments {
+        background: #2d2c2c;
+    }
+</style>
+<div class="active-appointments" ng-show="true">
+    <input type="text" id="searchQuery" class="form-control" style="margin-top:10px;border:1px solid #888888" placeholder="You can enter either Name / Mobile / Phone / Email / Address to search" ng-model="search">
+    <button class="btn btn-xs btn-primary pull-right form-box" ng-click="insertCustomEntry()">Insert Record</button>
+    <!--"-->
+    <hr>
+    <ul id="myTab" class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="/#users" role="tab" data-toggle="tab">
+                <i class="glyphicon glyphicon-user"></i>
+                Active Tab
+            </a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="users">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>DOB</th>
+                                    <th width="200">Address</th>
+                                    <td>Update</td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="todo in todoFiltered| startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit ">
+                                    <td>{{ todo.name }}</td>
+                                    <td>{{ todo.mobile }}</td>
+                                    <td>{{todo.phone}}</td>
+                                    <td>{{todo.email}}</td>
+                                    <td>{{todo.dob}}</td>
+                                    <td>{{todo.address}}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button class="btn-group btn-group-xs btn-success" role="group" ng-click="editCustomerEntry(todo)">
+                                                <span class="glyphicon glyphicon-edit"></span>
+                                            </button>
+                                            <button class="btn-group btn-group-xs btn-danger " role="group" ng-click="deleteCustomerData(todo._id)">
+                                                <span class=" glyphicon glyphicon-remove">
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <pagination data-boundary-links="true"
+                                    data-num-pages="noOfPages"
+                                    data-current-page="currentPage"
+                                    max-size="maxSize"
+                                    class="pagination-small pagination-centered"
+                                    data-previous-text="&laquo;"
+                                    data-next-text="&raquo;">
+                        </pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<div class="no-active-appointments" ng-show="false">
+    <input type="text" id="searchQuery" class="form-control" placeholder="Enter claim id or customer name to search" ng-model="search" ng-enter="SearchAppointments()">
+    <input id="search-button" type="button" class="btn btn-primary" value="Search" ng-click="SearchAppointments()">
+    <div class="bs-callout bs-callout-info">
+        <h4>No active appointments found.</h4>
+        <p ng-show="!searchResults">This provider doesn't seem to have any active appointments.</p>
+        <p ng-show="searchResults">We couldn't find an appointment matching your search criteria. Could you please try again with other search criteria?</p>
+        <button class="btn btn-primary text-center" ng-click="loadAppointments()" ng-show="searchResults">Show all appointments</button>
+    </div>
+</div>
+<div class="no-active-appointments" ng-show="false">
+    <div class="bs-callout bs-callout-info">
+        <h4>Fetching active appointments...</h4>
+        <p ng-show="!searchResults">This could take some time depending on your internet speed.</p>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Customer Data</h4>
+            </div>
+            <div class="modal-body">
+                <form name="formcustomerData">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label id="name">Name</label>
+                            <input name="name" class="form-control" type="text" ng-model="customerData.name" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label id="mobile">Mobile</label>
+                            <input id="mobile" class="form-control" type="text" ng-model="customerData.mobile" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label id="phone">Phone</label>
+                            <input id="phone" class="form-control" type="text" ng-model="customerData.phone" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label id="dob">DOB</label>
+                            <input id="dob" class="form-control" type="text" ng-model="customerData.dob" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label id="email">Email</label>
+                            <input id="email" class="form-control" type="text" ng-model="customerData.email" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label id="address">Address</label>
+                            <input id="address" class="form-control" type="text" ng-model="customerData.address" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="updateCustomerData()">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearCustomerData()">Close</button>
+                <button type="button" class="btn btn-primary" ng-disabled="formcustomerData.$invalid" ng-click="createCustomerEntry()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#modifiedDate').datetimepicker({
+            "format": 'Y/m/d H:i',
+            "step": 30,
+            "minTime": "08:00",
+            "maxTime": "10:00"
+        });
+    })
+</script>
