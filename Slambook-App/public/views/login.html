@@ -32,16 +32,16 @@
                 <table class="table table-condensed table-hover">
                     <thead>
                         <tr>
-                            <th>Image</th>
                             <th>Name</th>
-                            <th>id</th>
+                            <th>Email</th>
+                            <th>Last Updated</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="person in peopleFiltered| startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit " ng-click="openMailmodal(person)">
-                            <td><p><img src="{{person.image.url}}"></p></td>
-                            <td>{{ person.displayName }}</td>
-                            <td>{{person.id}}</td>
+                            <td>{{person.gd$name.gd$fullName.$t}}</td>
+                            <td>{{ person.gd$email[0].address}}</td>
+                            <td>{{person.updated.$t}}</td>
                         </tr>
                     </tbody>
                 </table>

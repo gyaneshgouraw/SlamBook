@@ -5,6 +5,11 @@ angular.module('LoginModuleCtrl', [])
 	        console.log("refrencecode", $route)
 	    startApp();
 	    var auth2 = {};
+
+		var clientId = '651347370973-gjqgapp9jlpgj7eol94gku9rvvdr30p3.apps.googleusercontent.com';
+		var apiKey = 'OmsoiNTQcfHHpRxt4XY4-s56';
+		var scopes = 'https://www.googleapis.com/auth/contacts.readonly';
+
 	    var helper = (function () {
 	        return {
 	            onSignInCallback: function (authResult) {
@@ -13,6 +18,7 @@ angular.module('LoginModuleCtrl', [])
 	                    $('#gConnect').hide();
 	                    helper.profile();
 	                    helper.people();
+	                    helper.contacts(authResult);
 	                    $(".login").addClass("login-show");
 	                } else if (authResult['error'] ||
                         authResult.currentUser.get().getAuthResponse() == null) {
@@ -33,17 +39,17 @@ angular.module('LoginModuleCtrl', [])
 
 	            },
 
+	            contacts: function(authResult){
+	            	gapi.client.setApiKey(apiKey);
+	            	handleAuthorization(authResult);
+	            },
 	            people: function () {
 	                gapi.client.plus.people.list({
 	                    'userId': 'me',
 	                    'collection': 'visible'
 	                }).then(function (res) {
 	                    console.log("people", res);
-	                    //$scope.people = res.result;
-	                    //console.log("Peopkle", $scope.people)
-	                    $scope.renderFriends(res.result);
-	                    $scope.$apply();
-
+	             
 	                });
 	            },
 	            profile: function () {
@@ -133,7 +139,8 @@ angular.module('LoginModuleCtrl', [])
 	                });
 	                gapi.auth2.init({
 	                    fetch_basic_profile: false,
-	                    scope: 'https://www.googleapis.com/auth/plus.login'
+	                  //  scope: 'https://www.googleapis.com/auth/plus.login'
+	                     scope: 'https://www.googleapis.com/auth/contacts.readonly'
 	                }).then(
                           function () {
                               console.log('init');
@@ -145,10 +152,24 @@ angular.module('LoginModuleCtrl', [])
 	        });
 	    }
 
+		function authorize() {
+			gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthorization);
+		}
+	     function handleAuthorization(authorizationResult) {
+            if (authorizationResult && !authorizationResult.error) {
+              $.get("https://www.google.com/m8/feeds/contacts/default/thin?alt=json&access_token=" + authorizationResult.currentUser.get().getAuthResponse().access_token + "&max-results=500&v=3.0",
+                function(response){
+				console.log("mymailresponse",response);
+				$scope.renderFriends(response.feed.entry);
+				$scope.$apply();
+                });
+            }
+          }
+
 	    $scope.renderFriends = function (data) {
-	        $scope.people = data.items;
+	        $scope.people = data;
 	        $scope.loading = false;
-	        $scope.entryLimit = 5;
+	        $scope.entryLimit = 15;
 	        $scope.currentPage = 1; //current page
 	        $scope.maxSize = 5; //pagination max size
 	        $scope.noOfPages = Math.ceil($scope.people.length / $scope.entryLimit);
