@@ -56,7 +56,7 @@ module.exports = function(app) {
 
 
 
-											
+
 											
 							          ////////////////////////////////
 							          // ---------------mail helper //
@@ -79,7 +79,7 @@ function handleSayHello(req, res) {
         service: 'Gmail',
         auth: {
             user: 'gyaneshgouraw1108@gmail.com', // Your email id
-            pass: 'mitmanipal' // Your password
+            pass: 'erwerewrrrwwrr' // Your password
         }
     });
 
