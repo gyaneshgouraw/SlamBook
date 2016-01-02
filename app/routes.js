@@ -48,6 +48,16 @@ module.exports = function(app) {
              getCustomerCollection(res);
          });
 	});
+											////////////////////////
+											///slambookcollection //
+											////////////////////////
+											
+
+
+
+
+											
+											
 							          ////////////////////////////////
 							          // ---------------mail helper //
 							          ////////////////////////////////
@@ -74,11 +84,12 @@ function handleSayHello(req, res) {
     });
 
     var mailOptions = {
-    from: 'gyaneshgouraw1108@gmail.com', // sender address//jitibisht.bisht@gmail.com
+    from: 'gyaneshgouraw110899@gmail.com', // sender address//jitibisht.bisht@gmail.com
     to: req.body.reciever, // list of receivers//mohanmanis@gmail.com
     subject: 'Please Fill my slam book', // Subject line
     text: 'Slambook link', //, // plaintext body
-    html: "<a href=http://localhost:3003/login/"+ req.body.senderid+"/"+req.body.recieverid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
+    html:req.body.data+"</br>"+
+     "<a href=http://localhost:3003/login/"+ req.body.senderid+"/"+req.body.recieverid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
 };
 
 	transporter.sendMail(mailOptions, function(error, info){

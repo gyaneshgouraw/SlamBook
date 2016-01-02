@@ -30,6 +30,22 @@ angular.module('todoService', [])
     	        }
     	    }
     	}])
+    .factory('SlambookCollection', ['$http', function ($http) {
+            return {
+                get: function () {
+                    return $http.get('/api/customercollection');
+                },
+                sendMail: function (maildata) {
+                    return $http.post('test', maildata);
+                },
+                update: function (customerdata) {
+                    return $http.post('/api/update/customercollection/' + customerdata._id, customerdata);
+                },
+                delete: function (id) {
+                    return $http.delete('/api/customercollection/' + id);
+                }
+            }
+        }])
     .filter('interpolate', ['version', function (version) {
         return function (text) {
             return String(text).replace(/\%VERSION\%/mg, version);

@@ -195,11 +195,8 @@ input.ng-invalid.ng-dirty{
 body{
   background-color: #3A3B3D;  
 }
-.nav-stacked>li{
-  margin: 5px 0;
-}
 #sidebar .nav>li>a{
-  color: #fff;  
+  color: #fff;
 }
 #sidebar .nav>li>a:hover{
   color: #000;
@@ -219,7 +216,7 @@ body{
 #sidebar .nav-pills>li.active>a, #sidebar .nav-pills>li.active>a:focus, #sidebar .nav-pills>li.active>a:hover{
   border-left-color: #de0000;
 }
-.table .label{
+.table .label, .label.tests{
   font-weight: normal;
   font-size: 12px;
   padding: 0.3em .6em .3em;
@@ -227,49 +224,3 @@ body{
   width: 200px;
   text-align: center;
 }
-
-
-
-/*added by sudhakar */
-body {font-family:'Open Sans', sans-serif; font-size:12px}
-.table>tbody>tr>td {font-size: 12px}
-.container-fluid {padding-right:0;}
-hr {margin:10px 0;}
-.chat h3 { font-size:16px; height:30px; line-height:30px; padding: 0 15px}
-.chat .seperator {color:#ddd;}
-.chat .subHead {font-size: 14px;}
-.chat-content_wrap {
-    background-color:#FFF; padding:10px 20px; margin-bottom:0; border-left:2px solid #ddd;
-}
-.chat-content_wrap .arrow {width:15px; height:15px; display:block; background-color:#AAA; border-radius:100%; margin:8px 0 0 -28px; position:absolute;
-}
-.chat-content_wrap .note {padding-top:0;}
-.chat-date, .chat-date_time {display:block; text-align:left; font-size: 11px; margin-bottom:5px;}
-.chat .chat-content_wrap:first-child .arrow {background-color:#5CB85C}
-
-.form-control {height:28px; line-height:28px; padding:0 5px; font-size:12px;}
-.noPdngRt {padding-right:0;}
-.noPdngLt {padding-left:0;}
-.noPdngLtRt {padding-left:0; padding-right:0;}
-
-.hdng .strong{font-size:14px;}
-.hdng label {font-weight:normal}
-.hdng .devider {color:#999;}
-.input-xs {height:22px; line-height:22px; padding:0 5px}
-.uploaded {display:inline-block;}
-.btn {padding:4px 12px}
-.modal-footer {margin-top:0;}
-.form-create.card {padding:10px}
-#searchQuery, #search-button {margin-top:-67px; height:30px!important; line-height:30px!important; padding: 0 12px;}
-.header .brand {height:30px; line-height:30px; padding:0; margin:0;}
-.header {width:100%; float: left;}
-#sidebar .nav>li>a {height:auto; line-height:22px; padding:6px 10px}
-#sidebar .nav>li>a>span {padding-left:6px;}
-#sidebar .nav li ul {margin:0; padding:0;}
-#sidebar .nav li ul li {margin:0; padding:0;}
-#sidebar .nav li.submenuActive {border-left:2px solid #de0000}
-#sidebar .nav li.submenuActive a {background-color:#707275;}
-#sidebar .nav li.submenuActive ul {border-left:4px solid #FF7F7F}
-#sidebar .nav li.submenuActive ul li a {color:#fff; display:block; padding:3px 10px; background:#2D2F31}
-#sidebar .nav li.submenuActive ul li a i {margin-right:6px;}
-/*added by sudhakar ends here */
