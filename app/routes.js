@@ -78,8 +78,8 @@ function handleSayHello(req, res) {
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'gyaneshgouraw1108@gmail.com', // Your email id
-            pass: 'erwerewrrrwwrr' // Your password
+            user: 'myslamrecordbook@gmail.com', // Your email id
+            pass: 'debug@apple' // Your password
         }
     });
 
