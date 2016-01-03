@@ -1,4 +1,5 @@
 var CustomerCollection = require('./models/customercollection');
+var Slambookollection = require('./models/slambookcollection');
 var nodemailer = require('nodemailer');
 
 
@@ -8,6 +9,13 @@ function getCustomerCollection(res){
 			if (err)
 				res.send(err)
 			res.json(cust); // return all todos in JSON format
+		});
+};
+function getSlambookollection(res){
+	Slambookollection.find(function(err, slam) {
+			if (err)
+				res.send(err)
+			res.json(slam); // return all todos in JSON format
 		});
 };
 
@@ -48,6 +56,24 @@ module.exports = function(app) {
              getCustomerCollection(res);
          });
 	});
+											////////////////////////
+											///slambookcollection //
+											////////////////////////
+											
+app.get('/api/slambookollection', function (req, res) {
+		getSlambookollection(res);
+	});
+app.post('/api/slambookollection', function (req, res) {
+		Slambookollection.create(req.body, function(err, cust) {
+			if (err)
+				res.send(err);
+			getSlambookollection(res);
+		});
+	});
+
+
+
+											
 							          ////////////////////////////////
 							          // ---------------mail helper //
 							          ////////////////////////////////
@@ -68,17 +94,18 @@ function handleSayHello(req, res) {
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'gyaneshgouraw1108@gmail.com', // Your email id
-            pass: 'mitmanipal' // Your password
+            user: 'myslamrecordbook@gmail.com', // Your email id
+            pass: 'debug@apple' // Your password
         }
     });
 
     var mailOptions = {
-    from: 'gyaneshgouraw1108@gmail.com', // sender address//jitibisht.bisht@gmail.com
+    from: 'gyaneshgouraw110899@gmail.com', // sender address//jitibisht.bisht@gmail.com
     to: req.body.reciever, // list of receivers//mohanmanis@gmail.com
     subject: 'Please Fill my slam book', // Subject line
     text: 'Slambook link', //, // plaintext body
-    html: "<a href=http://localhost:3003/login/"+ req.body.senderid+"/"+req.body.recieverid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
+    html:req.body.data+"</br>"+
+     "<a href=http://localhost:3003/login/"+ req.body.senderid+"/"+req.body.recieverid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
 };
 
 	transporter.sendMail(mailOptions, function(error, info){
