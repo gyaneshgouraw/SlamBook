@@ -1,5 +1,12 @@
 angular.module('LoginModuleCtrl', [])
-	.controller('LoginController', ['$scope', '$stateParams', '$route', '$routeParams', 'filterFilter', function ($scope, $stateParams, $route, $routeParams, filterFilter) {
+	.controller('LoginController', ['$scope', '$stateParams', '$route', '$routeParams', 'filterFilter','SlambookCollection', function ($scope, $stateParams, $route, $routeParams, filterFilter,SlambookCollection) {
+
+/**
+ * variables and objects
+ */
+
+$scope.mail = {};
+
 
 	    if ($route)
 	        console.log("refrencecode", $route)
@@ -57,6 +64,7 @@ angular.module('LoginModuleCtrl', [])
 	                    'userId': 'me'
 	                }).then(function (res) {
 	                    var profile = res.result;
+	                    $scope.mail.senderKey = res.result.id;
 	                    console.log(profile);
 	                    $('#profile').empty();
 	                    $('#profile').append(
@@ -185,6 +193,31 @@ angular.module('LoginModuleCtrl', [])
  */
 	    $scope.openMailmodal = function (data) {
 	        $('#myMailModal').modal('toggle');
+	        $scope.mail.name = data.gd$name.gd$fullName.$t;
+           // $scope.mail.body = ""
+            $scope.mail.recieverKey = data.gd$etag;
+            $scope.mail.recieverMail = data.gd$email[0].address;
+
+            console.log("maildata",$scope.mail);
 	    }
+	    $scope.sendInvitaionMail = function(){
+
+	    var maildata = 	{
+							"data": $scope.mail.body,
+							"senderid": $scope.mail.senderKey,
+							"recieverid": $scope.mail.recieverKey ,
+							"reciever": $scope.mail.recieverMail
+						}
+                SlambookCollection.sendMail(maildata)
+                .success(function (data) {
+                    $('#myMailModal').modal('toggle')
+                   alert("success");
+                },
+                function(data){
+                	alert("error");
+                }
+                );
+        }
+	    
 
 	}]);

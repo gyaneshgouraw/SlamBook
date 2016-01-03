@@ -68,12 +68,28 @@
                 <h4 class="modal-title" id="myModalLabel">Send Mail</h4>
             </div>
             <div class="modal-body">
-                <h1>dhfjdkfkjd</h1>
+            <form name="mailerForm">
+                   <div class="row">
+             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                 <div>Hello</div><span><b>{{mail.name}}</b></span>
+             </div>  
+             <div class="col-md-6 pull-right">
+                  <input type="text" ng-model="mail.recieverMail" name="" id="input" pattern="" title="RecieverMail"ng-required="true">
+             </div>         
+            </div>
+            <div class="row form-group">
+                   <div class="col-md-12">
+                    <textarea rows="5" class="form-control" placeholder="Enter your message" ng-model="mail.body"></textarea>
+                </div>
+            </div>
+            </form>
+          
+                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="updateCustomerData()">Update</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearCustomerData()">Close</button>
-                <button type="button" class="btn btn-primary" ng-disabled="formcustomerData.$invalid" ng-click="createCustomerEntry()">Submit</button>
+                
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
+                <button type="button" class="btn btn-primary" ng-disabled="mailerForm.$invalid" ng-click="sendInvitaionMail()">Send</button>
             </div>
         </div>
     </div>
