@@ -38,6 +38,12 @@ angular.module('todoService', [])
                 sendMail: function (maildata) {
                     return $http.post('test', maildata);
                 },
+                createSlam: function (slamdata) {
+                    return $http.post('/api/slambookollection', slamdata);
+                },
+                 getSlam: function () {
+                    return $http.get('/api/slambookollection');
+                },
                 update: function (customerdata) {
                     return $http.post('/api/update/customercollection/' + customerdata._id, customerdata);
                 },

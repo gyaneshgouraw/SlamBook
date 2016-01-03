@@ -1,4 +1,5 @@
 var CustomerCollection = require('./models/customercollection');
+var Slambookollection = require('./models/slambookcollection');
 var nodemailer = require('nodemailer');
 
 
@@ -8,6 +9,13 @@ function getCustomerCollection(res){
 			if (err)
 				res.send(err)
 			res.json(cust); // return all todos in JSON format
+		});
+};
+function getSlambookollection(res){
+	Slambookollection.find(function(err, slam) {
+			if (err)
+				res.send(err)
+			res.json(slam); // return all todos in JSON format
 		});
 };
 
@@ -52,8 +60,16 @@ module.exports = function(app) {
 											///slambookcollection //
 											////////////////////////
 											
-
-
+app.get('/api/slambookollection', function (req, res) {
+		getSlambookollection(res);
+	});
+app.post('/api/slambookollection', function (req, res) {
+		Slambookollection.create(req.body, function(err, cust) {
+			if (err)
+				res.send(err);
+			getSlambookollection(res);
+		});
+	});
 
 
 
