@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Slambookollection', {
+    senderid :{type:String,default:''},
+    recieverid :{type:String,default:''},
     name: { type: String, default: '' },
     address: { type: String, default: '' },
     phone: { type: String, default: '' },

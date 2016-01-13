@@ -7,5 +7,6 @@ angular.module('sampleApp',
         'DashboardCtrl',
         'ngTable',
         'todoService',
+        'directives',
         'ui.bootstrap',
         'blockUI']);

@@ -2,147 +2,528 @@
 	div1{
 		color:white;
 	}
+	body{
+		color:white;
+	}
+
+	.backcolour{
+		background-color: red
+
+	}
+
+	 .bimg2 {
+        background-image: url('../images/name2.gif');
+        height:250 px;
+    }
+
+ .timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+}
+
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #eeeeee;
+        left: 50%;
+        margin-left: -1.5px;
+    }
+
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li > .timeline-panel {
+            width: 46%;
+            float: left;
+            border: 1px solid #d4d4d4;
+            border-radius: 2px;
+            padding: 20px;
+            position: relative;
+            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        }
+
+            .timeline > li > .timeline-panel:before {
+                position: absolute;
+                top: 26px;
+                right: -15px;
+                display: inline-block;
+                border-top: 15px solid transparent;
+                border-left: 15px solid #ccc;
+                border-right: 0 solid #ccc;
+                border-bottom: 15px solid transparent;
+                content: " ";
+            }
+
+            .timeline > li > .timeline-panel:after {
+                position: absolute;
+                top: 27px;
+                right: -14px;
+                display: inline-block;
+                border-top: 14px solid transparent;
+                border-left: 14px solid #fff;
+                border-right: 0 solid #fff;
+                border-bottom: 14px solid transparent;
+                content: " ";
+            }
+
+        .timeline > li > .timeline-badge {
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4em;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -25px;
+            background-color: #999999;
+            z-index: 100;
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                border-left-width: 0;
+                border-right-width: 15px;
+                left: -15px;
+                right: auto;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                border-left-width: 0;
+                border-right-width: 14px;
+                left: -14px;
+                right: auto;
+            }
+
+.timeline-badge.primary {
+    background-color: #2e6da4 !important;
+}
+
+.timeline-badge.success {
+    background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+    background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+    background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+    background-color: #5bc0de !important;
+}
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+
+@media (max-width: 767px) {
+    ul.timeline:before {
+        left: 40px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 90px);
+        width: -moz-calc(100% - 90px);
+        width: -webkit-calc(100% - 90px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        left: 15px;
+        margin-left: 0;
+        top: 16px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+}
 </style>
-<div class="container well">
-	<div class="row">
-		<div class="col-md-5">
-			<label for="name">Name</label>
-				<input id="name" class="form-control" type="text" ng-model="slam.name" />
-		<img  height="30%" width="30%" src="../images/name.jpg" class="img-responsive" alt="Image">
-		</div>
-		<div class="col-md-5">
-			<label for="address">Address</label>
-				<textarea cols="30" rows="5"class="form-control" id="address" ng-model="slam.address"></textarea>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="phone">Phone</label>
-				<input id="phone" class="form-control" type="text" ng-model="slam.phone" />
-		</div>
-		<div class="col-md-5">
-			<label for="bday">Birthday</label>
-				<input id="bday" class="form-control" type="text" ng-model="slam.bday" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="zodiac">zodiac</label>
-				<input id="zodiac" class="form-control" type="text" ng-model="slam.zodiac" />
-		</div>
-		<div class="col-md-5">
-			<label for="secret">secret</label>
-				<input id="secret" class="form-control" type="text" ng-model="slam.secret" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="crush">crush</label>
-				<input id="crush" class="form-control" type="text" ng-model="slam.crush" />
+
+
+
+<!-- /*=============================================
+=            Timeline  block            =
+=============================================*/ -->
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">My Slambook</h1>
+    </div>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">My Name</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+            </div>
+            <div class="timeline-body">
+              <p><div class="col-md-12">
+              	<input class="form-control"type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+              </div></p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Address</h4>
+            </div>
+            <div class="timeline-body">
+              <textarea cols="30" rows="5"class="form-control" id="address" ng-model="slam.address"></textarea>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Phone</h4>
+            </div>
+            <div class="timeline-body">
+             <input id="phone" class="form-control" type="text" ng-model="slam.phone" />
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Birthday</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="bday" class="form-control" type="text" ng-model="slam.bday" />
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Zodiac</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="zodiac" class="form-control" type="text" ng-model="slam.zodiac" />
+              <hr>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Actionnnn</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Secret</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="secret" class="form-control" type="text" ng-model="slam.secret" />
+            </div>
+          </div>
+        </li>
+        <li >
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Essentials</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="essential" class="form-control" type="text" ng-model="slam.essential" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-heart"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Crush</h4>
+            </div>
+            <div class="timeline-body">
+            <input id="crush" class="form-control" type="text" ng-model="slam.crush" />
 				<img  height="10%" width="10%" src="../images/crush.gif" class="img-responsive" alt="Image">
-		</div>
-		<div class="col-md-5">
-			<label for="essential">essential</label>
-				<input id="essential" class="form-control" type="text" ng-model="slam.essential" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="greed">greed</label>
-				<input id="greed" class="form-control" type="text" ng-model="slam.greed" />
-		</div>
-		<div class="col-md-5">
-			<label for="earn">earn</label>
-				<input id="earn" class="form-control" type="text" ng-model="slam.earn" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="fav_movie">fav_movie</label>
-				<input id="fav_movie" class="form-control" type="text" ng-model="slam.fav_movie" />
-		</div>
-		<div class="col-md-5">
-			<label for="fav_actor_actresses">fav_actor_actresses</label>
-				<input id="fav_actor_actresses" class="form-control" type="text" ng-model="slam.fav_actor_actresses" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="fav_festival">fav_festival</label>
-				<input id="fav_festival" class="form-control" type="text" ng-model="slam.fav_festival" />
-		</div>
-		<div class="col-md-5">
-			<label for="fav_website">fav_website</label>
-				<input id="fav_website" class="form-control" type="text" ng-model="slam.fav_website" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="fav_holiday_spot">fav_holiday_spot</label>
-				<input id="fav_holiday_spot" class="form-control" type="text" ng-model="slam.fav_holiday_spot" />
-		</div>
-		<div class="col-md-5">
-			<label for="memorable_moments">memorable_moments</label>
-				<textarea  cols="30" rows="5" id="memorable_moments" class="form-control" type="text" ng-model="slam.memorable_moments" ></textarea>
-		</div>
-	</div>
-	<!-- new -->
-	<!-- new -->
-	<!-- new -->
-	<!-- new -->
-
-	<div class="row">
-		<div class="col-md-5">
-			<label for="fav_holiday_spot">people_I_hate</label>
-				<input id="people_I_hate" class="form-control" type="text" ng-model="slam.people_I_hate" />
-		</div>
-		<div class="col-md-5">
-			<label for="fav_dance_tune">fav_dance_tune</label>
-				<input id="fav_dance_tune" class="form-control" type="text" ng-model="slam.fav_dance_tune" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="my_ideal">my_ideal</label>
-				<input id="my_ideal" class="form-control" type="text" ng-model="slam.my_ideal" />
-		</div>
-		<div class="col-md-5">
-			<label for="my_ambition">my_ambition</label>
-				<input id="my_ambition" class="form-control" type="text" ng-model="slam.my_ambition" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="first_impression">first_impression</label>
-				<textarea  cols="30" rows="5" id="first_impression" class="form-control" type="text" ng-model="slam.first_impression"></textareaid>
-		</div>
-		<div class="col-md-5">
-			<label for="things_about_me">things_about_me</label>
-				<textarea cols="30" rows="5" id="things_about_me" class="form-control" type="text" ng-model="slam.things_about_me" ></textarea>
-		</div>
-	</div>
-	<div class="row ">
-		<div class="col-md-5">
-			<label for="annoying_habit">My Annoying Habbit</label><span><img  height="10%" width="10%" src="../images/annoy.gif" class="img-responsive" alt="Image"></span>
-				<textarea  cols="30" rows="5" id="annoying_habit" class="form-control" type="text" ng-model="slam.annoying_habit"></textarea>
-
-		</div>
-		<div class="col-md-5">
-			<label for="memorable_moments">memorable_moments</label>
-				<textarea  cols="30" rows="5" id="memorable_moments" class="form-control" type="text" ng-model="slam.memorable_moments"></textarea>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5">
-			<label for="things_not_said_about_me">things_not_said_about_me</label>
-				<textarea cols="30" rows="5"id="things_not_said_about_me" class="form-control" type="text" ng-model="slam.things_not_said_about_me"></textarea>
-		</div>
-		<div class="col-md-5">
-			<label for="final_line">final_line</label>
-				<textarea  cols="30" rows="5" id="final_line" class="form-control" type="text" ng-model="slam.final_line"></textarea>
-		</div>
-	</div>
-	<button type="button" class="btn btn-default" ng-click="createSlamEntry()">Submit</button>
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-star"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Greed</h4>
+            </div>
+            <div class="timeline-body">
+             <input id="greed" class="form-control" type="text" ng-model="slam.greed" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge success"><i class="glyphicon glyphicon-time"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Earn</h4>
+            </div>
+            <div class="timeline-body">
+             <input id="earn" class="form-control" type="text" ng-model="slam.earn" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-home"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Movie</h4>
+            </div>
+            <div class="timeline-body">
+            <input id="fav_movie" class="form-control" type="text" ng-model="slam.fav_movie" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-fire"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Actor/Actress</h4>
+            </div>
+            <div class="timeline-body">
+         <input id="fav_actor_actresses" class="form-control" type="text" ng-model="slam.fav_actor_actresses" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-picture"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Festival</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="fav_festival" class="form-control" type="text" ng-model="slam.fav_festival" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge success"><i class="glyphicon glyphicon-bookmark"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Website</h4>
+            </div>
+            <div class="timeline-body">
+            <input id="fav_website" class="form-control" type="text" ng-model="slam.fav_website" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-road"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Holiday Spot</h4>
+            </div>
+            <div class="timeline-body">
+          <input id="fav_holiday_spot" class="form-control" type="text" ng-model="slam.fav_holiday_spot" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Memorable Moments</h4>
+            </div>
+            <div class="timeline-body">
+              <textarea  cols="30" rows="5" id="memorable_moments" class="form-control" type="text" ng-model="slam.memorable_moments" ></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-volume-off"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">People I hate</h4>
+            </div>
+            <div class="timeline-body">
+             <input id="people_I_hate" class="form-control" type="text" ng-model="slam.people_I_hate" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge success"><i class="glyphicon glyphicon-play-circle"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Favourite Music</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="fav_dance_tune" class="form-control" type="text" ng-model="slam.fav_dance_tune" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-question-sign"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">My Ideal</h4>
+            </div>
+            <div class="timeline-body">
+             <input id="my_ideal" class="form-control" type="text" ng-model="slam.my_ideal" />
+            </div>
+          </div>
+        </li>   <li class="timeline-inverted">
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-plane"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">My Ambition</h4>
+            </div>
+            <div class="timeline-body">
+              <input id="my_ambition" class="form-control" type="text" ng-model="slam.my_ambition" />
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">First Impression</h4>
+            </div>
+            <div class="timeline-body">
+             <textarea  cols="30" rows="5" id="first_impression" class="form-control" type="text" ng-model="slam.first_impression"></textareaid>
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge success"><i class="glyphicon glyphicon-headphones"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Things About Me</h4>
+            </div>
+            <div class="timeline-body">
+              <textarea cols="30" rows="5" id="things_about_me" class="form-control" type="text" ng-model="slam.things_about_me" ></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-trash"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">My Annoying Habbits</h4>
+            </div>
+            <div class="timeline-body">
+              <textarea  cols="30" rows="5" id="annoying_habit" class="form-control" type="text" ng-model="slam.annoying_habit"></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-user"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Memorable moments with me</h4>
+            </div>
+            <div class="timeline-body">
+             <textarea  cols="30" rows="5" id="memorable_moments" class="form-control" type="text" ng-model="slam.memorable_moments"></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge info"><i class="glyphicon glyphicon-phone"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Things unsaid about me</h4>
+            </div>
+            <div class="timeline-body">
+              <textarea cols="30" rows="5"id="things_not_said_about_me" class="form-control" type="text" ng-model="slam.things_not_said_about_me"></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline">
+          <div class="timeline-badge success"><i class="glyphicon glyphicon-export"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Some Final Lines</h4>
+            </div>
+            <div class="timeline-body">
+           <textarea  cols="30" rows="5" id="final_line" class="form-control" type="text" ng-model="slam.final_line"></textarea>
+            </div>
+          </div>
+        </li>
+           <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-send"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Ohh Finally </h4>
+            </div>
+            <div class="timeline-body">
+             <button type="button" class="btn btn-default" ng-click="createSlamEntry()">Submit</button>
+            </div>
+          </div>
+        </li>
+    </ul>
 </div>
 
-
+<!-- /*=====  End of Section comment block  ======*/ -->

@@ -25,3 +25,4 @@ SlambookCollection.createSlam(slamdata)
 }
 
 	}]);
+
