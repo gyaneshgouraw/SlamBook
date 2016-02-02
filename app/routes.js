@@ -150,7 +150,7 @@ if(req && req.flag =="slamsubmit"){
     subject: 'Please Fill my slam book', // Subject line
     text: 'Slambook link', //, // plaintext body
     html:req.body.data+"</br>"+
-     "<a href=https://myslambook.herokuapp.com/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
+     "<a href=https://myslambook.herokuapp.com/login/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
 };
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
