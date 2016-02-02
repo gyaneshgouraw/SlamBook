@@ -131,7 +131,7 @@ if(req && req.flag =="slamsubmit"){
     subject: 'Slam Book Filled', // Subject line
     text: 'Slambook link', //, // plaintext body
     html:req.data+"</br>"+
-     "<a href=http://localhost:3003/login/disp/slam/"+req.recievermailid+"/"+req.sendermailid+"> Click to visit filled slambook page✔</a>" // You can choose to send an HTML body instead
+     "<a href=https://myslambook.herokuapp.com/login/disp/slam/"+req.recievermailid+"/"+req.sendermailid+"> Click to visit filled slambook page✔</a>" // You can choose to send an HTML body instead
 };
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
@@ -150,7 +150,7 @@ if(req && req.flag =="slamsubmit"){
     subject: 'Please Fill my slam book', // Subject line
     text: 'Slambook link', //, // plaintext body
     html:req.body.data+"</br>"+
-     "<a href=http://localhost:3003/login/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
+     "<a href=https://myslambook.herokuapp.com/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
 };
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
