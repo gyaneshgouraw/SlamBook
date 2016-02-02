@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('providerApp')
+angular.module('directives',[])
 
     .directive('appVersion', ['version', function (version) {
         return function (scope, elm, attrs) {
@@ -104,4 +104,11 @@ angular.module('providerApp')
          controller: function ($scope,UtilitiesService) {
          }
      }
- });
+ })
+    .directive("myTest",function(){
+        return{
+         restrict: 'E',
+         template: '<h1>my directive data</h1>',
+        }
+    })
+    ;

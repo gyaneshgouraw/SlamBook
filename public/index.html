@@ -3,23 +3,35 @@
 	<head>
 		<meta charset="UTF-8">
 		<base href="/">
-
+<link rel="shortcut icon" type="image/png" href="images/slam1.png"/>
 		<title>Slambook Applicationn</title>
 
 		<!-- CSS -->
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" defer>
 		<link href="resources/css/default.css" rel="stylesheet">
 		<link href="resources/css/main.css" rel="stylesheet">
+		<!-- <link href="resources/css/app.css" rel="stylesheet"> -->
 		<link href="resources/css/styles.css" rel="stylesheet">
 
 		<link href="resources/css/angular-block-ui.css" rel="stylesheet" />
 		<link href="resources/css/bootstrap.no-icons.min.css" rel="stylesheet" />
-		<link href="resources/css/font-awesome.css" rel="stylesheet" />
 		<link href="resources/css/jquery.datetimepicker.css" rel="stylesheet" />
 		<link href="resources/css/typeaheadjs.css" rel="stylesheet" />
 		<link href="resources/css/jquery.fileupload-ui.css" rel="stylesheet">
 		<link href="resources/css/jquery-ui.css" id="theme" rel="stylesheet">
-		<link href="resources/css/maya_styles.css" id="theme" rel="stylesheet">
-
+		<link href="resources/css/loading-bar.css" rel="stylesheet">
+		
+<style>
+	 body {
+            background: url(images/bg-signin2.jpg);
+            /*background: #fff;*/
+            /*padding-bottom: 50px;*/
+        }
+         .modal-header{
+        background-color:rgba(0, 190, 78, 0.9) !important;
+        color:white;
+        }
+</style>
 		<!-- JS -->
 
 		<!-- Required 3rd party JS resources -->
@@ -41,6 +53,7 @@
 
 		<script src="resources/js/vendor/bootstrap.min.js"></script>
 		<script src="resources/js/vendor/angular-block-ui.js"></script>
+		<script src="resources/js/vendor/loading-bar.min.js"></script>
 		<script src="resources/js/vendor/date.js"></script>
 		<script src="resources/js/vendor/jquery.fancybox.js"></script>
 		<script src="resources/js/vendor/jquery.md5.js"></script>
@@ -62,13 +75,16 @@
 		<script src="js/app.js"></script>
 	<!-- service -->
 		<script src="js/services/todos.js"></script> <!-- load our todo service -->
+		<script src="resources/js/directives.js"></script>
 	</head>
 	<body ng-controller="DashboardController">
 	    <div class="container ">
 	        <!-- HEADER -->
 	        <nav class="navbar navbar-inverse login">
 	            <div class="navbar-header">
-	                <a class="navbar-brand active" href="/dashboard">Customer DashBoardd</a>              
+	                <a class="navbar-brand active" href="/dashboard">
+	                <img src="images/slam11.png"  width="30px">
+	                Customer DashBoardd</a>              
 	            </div>
 	            <ul class="nav navbar-nav ">
 	                <li><a href="/aboutme">About</a></li>
