@@ -1,4 +1,16 @@
-﻿#searchQuery{
+﻿@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Special+Elite);
+@import url(https://fonts.googleapis.com/css?family=Peralta);
+@import url(https://fonts.googleapis.com/css?family=Freckle+Face);
+@import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
+@import url(https://fonts.googleapis.com/css?family=Pragati+Narrow);
+.table{
+  font-family: 'Pragati Narrow', cursive !important;
+}
+div {
+    font-family: 'Freckle Face' !important;
+}
+#searchQuery{
     background: none repeat scroll 0 0 #FFF;
     box-shadow: none!important;
     color: #344644;

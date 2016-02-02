@@ -6,6 +6,8 @@ angular.module('LoginModuleCtrl', [])
  */
 
 $scope.mail = {};
+ $scope.profile={};
+ $scope.authOps = false; 
 
 
 	    if ($route)
@@ -21,7 +23,8 @@ $scope.mail = {};
 	        return {
 	            onSignInCallback: function (authResult) {
 	                if (authResult.isSignedIn.get()) {
-	                    $('#authOps').show('slow');
+	                  //  $('#authOps').show('slow');
+	                    $scope.authOps = true;
 	                    $('#gConnect').hide();
 	                    helper.profile();
 	                    helper.people();
@@ -33,10 +36,12 @@ $scope.mail = {};
 	                    // As an example, you can handle by writing to the console:
 	                    console.log('There was an error: ' + authResult['error']);
 	                    $('#authResult').append('Logged out');
-	                    $('#authOps').hide('slow');
+	                    //$('#authOps').hide('slow');
+	                     $scope.authOps = false;
 	                    $('#gConnect').show();
 	                }
 	                console.log('authResult', authResult);
+	                 $scope.$apply();
 	            },
 
 
@@ -66,16 +71,23 @@ $scope.mail = {};
 	                    var profile = res.result;
 	                    $scope.mail.senderKey = res.result.id;
 	                    console.log(profile);
-	                    $('#profile').empty();
-	                    $('#profile').append(
-                            $('<p><img src=\"' + profile.image.url + '\"></p>'));
-	                    $('#profile').append(
-                            $('<p>Hello ' + profile.displayName + '!<br />Tagline: ' +
-                            profile.tagline + '<br />About: ' + profile.aboutMe + '</p>'));
+	                  //  $('#profile').empty();
+
+						
+
+	                    // $('#profile').append(
+                     //        $('<p><img src=\"' + profile.image.url + '\"></p>'));
+	                    // $('#profile').append(
+                     //        $('<p>Hello ' + profile.displayName + '!<br />Tagline: ' +
+                     //        profile.tagline + '<br />About: ' + profile.aboutMe + '</p>'));
 	                    $scope.username = profile.displayName;
 
 	                    $scope.$apply(function () {
 	                        $scope.username = profile.displayName;
+	                        $scope.profile.img = profile.image.url;
+						$scope.profile.displayName=profile.displayName;
+						$scope.profile.about = profile.aboutMe;
+						$scope. profile.tagline =  profile.tagline;
 	                    });
 	                    console.log("my user name", $scope.username);
 
@@ -96,6 +108,7 @@ $scope.mail = {};
 	                    $('#profile').append(error.message);
 	                });
 	            }
+
 	        };
 	    })();
 
@@ -169,6 +182,7 @@ $scope.mail = {};
                 function(response){
 				console.log("mymailresponse",response);
 				$scope.renderFriends(response.feed.entry);
+				$scope.mail.senderMailId = response.feed.author[0].email.$t;
 				$scope.$apply();
                 });
             }
@@ -199,18 +213,20 @@ $scope.mail = {};
             $scope.mail.recieverMail = data.gd$email[0].address;
 
             console.log("maildata",$scope.mail);
-	    }
+	    };
 	    $scope.sendInvitaionMail = function(){
 
 	    var maildata = 	{
 							"data": $scope.mail.body,
 							"senderid": $scope.mail.senderKey,
+							"sendermailid":$scope.mail.senderMailId,
 							"recieverid": $scope.mail.recieverKey ,
+							"recievermailid": $scope.mail.recieverMail,
 							"reciever": $scope.mail.recieverMail
-						}
+						};
                 SlambookCollection.sendMail(maildata)
                 .success(function (data) {
-                    $('#myMailModal').modal('toggle')
+                    $('#myMailModal').modal('toggle');
                    alert("success");
                 },
                 function(data){

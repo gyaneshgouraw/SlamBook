@@ -49,6 +49,9 @@ angular.module('todoService', [])
                 },
                 delete: function (id) {
                     return $http.delete('/api/customercollection/' + id);
+                },
+                getSelectedSlam:function(getslamrequest){
+                    return $http.post('/api/slambookollection/getrecordbyemail',getslamrequest);
                 }
             }
         }])

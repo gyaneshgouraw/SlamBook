@@ -16,6 +16,10 @@ angular.module('appRoutes', []).config(['$routeProvider','$stateProvider', '$loc
 		    templateUrl: 'views/slambookExt.html',
 		    controller: 'SlambookExt'
 		})
+			.when('/login/:senderid/:recieverid/:sendermailid/:recievermailid', {
+		    templateUrl: 'views/slambookExt.html',
+		    controller: 'SlambookExt'
+		})
 		
 		.when('/dashboard', {
 		    templateUrl: 'views/nerd.html',

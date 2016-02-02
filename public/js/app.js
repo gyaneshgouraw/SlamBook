@@ -9,4 +9,5 @@ angular.module('sampleApp',
         'todoService',
         'directives',
         'ui.bootstrap',
-        'blockUI']);
+        'blockUI',
+        'angular-loading-bar']);

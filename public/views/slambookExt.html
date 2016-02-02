@@ -6,6 +6,10 @@
 		color:white;
 	}
 
+  .extaColor{
+    color:grey !important;
+  }
+
 	.backcolour{
 		background-color: red
 
@@ -221,7 +225,7 @@
             </div>
             <div class="timeline-body">
               <p><div class="col-md-12">
-              	<input class="form-control"type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+              	<input class="form-control"type="text" ng-model="slam.name" id="input" class="form-control" value="" required="required" pattern="" title="">
               </div></p>
             </div>
           </div>
@@ -519,7 +523,9 @@
               <h4 class="timeline-title">Ohh Finally </h4>
             </div>
             <div class="timeline-body">
-             <button type="button" class="btn btn-default" ng-click="createSlamEntry()">Submit</button>
+             <button type="button" class="btn btn-primary" ng-click="createSlamEntry()">
+                <i class="glyphicon glyphicon-send"></i>
+             Submit</button>
             </div>
           </div>
         </li>
@@ -527,3 +533,85 @@
 </div>
 
 <!-- /*=====  End of Section comment block  ======*/ -->
+
+<!--/*=============================================
+=           modal for successful submission         =
+=============================================*/-->
+
+<div class="modal fade extaColor" id="myMailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Submission</h4>
+            </div>
+            <div class="modal-body">
+
+             <div ng-class="" ng-show="slamSuccess">
+               <div class="extaColor">
+                 <div class="container">
+                   <h1>Success</h1>
+                    <p> Your slambook has been successfully submitted</p>
+                    <p>Click invite to invite your friends to fill this slam book for you.</p>
+                    <p>
+                     <a class="btn btn-primary btn-xs">Learn more</a>
+                    </p>
+                 </div>
+               </div>
+            </div>
+            <div ng-class="" ng-show="!slamSuccess">
+               <div class="extaColor">
+                 <div class="container">
+                   <h1>Failure</h1>
+                    <p> Your slambook could not be successfully submitted</p>
+                    <p>Please try once again</p>
+                    <p>
+                     <a class="btn btn-primary btn-xs">Learn more</a>
+                    </p>
+                 </div>
+               </div>
+            </div>
+             
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="redirectLogin()">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--/*=====  End of Section comment block  ======*/-->
+
+<!-- /*=============================================
+=            multiple slam instance modal       =
+=============================================*/
+ -->
+
+<div class="modal fade extaColor" id="multipleSlamInstance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Select</h4>
+            </div>
+            <div class="modal-body">
+
+             <div ng-repeat="item in slamList">
+               <button class="btn btn-primary" ng-click="renderSelectedSlam(item)">{{item.name}}{{item.bday}}</button>
+             </div>
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="redirectLogin()">Invite</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- /*=====  End of Section comment block  ======*/ -->
+
+
+
+

@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('Slambookollection', {
     senderid :{type:String,default:''},
     recieverid :{type:String,default:''},
+    recievermailid : {type:String,default:''},
+    sendermailid : {type:String,default:''},
     name: { type: String, default: '' },
     address: { type: String, default: '' },
     phone: { type: String, default: '' },
@@ -27,6 +29,7 @@ module.exports = mongoose.model('Slambookollection', {
     annoying_habit: { type: String, default: '' },
     things_not_said_about_me: { type: String, default: '' },
     final_line: { type: String, default: '' },
+    createdon:{type:Date,default:new Date()}
    
 });
 
