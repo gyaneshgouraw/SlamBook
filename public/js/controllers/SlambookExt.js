@@ -6,6 +6,7 @@
 		        console.log("refrencecode", $route);
 
 if($route.current.params.senderid == "disp"){
+	$scope.showSubmit =$route.current.params.senderid == "disp";
  var getslamrequest = {
  	 sendermailid : $route.current.params.sendermailid,
 	 recievermailid :$route.current.params.recievermailid
@@ -32,8 +33,8 @@ $scope.renderSelectedSlam = function(item){
 
 $scope.createSlamEntry = function(){
  var slamdata = $scope.slam;
-     slamdata.sendername = "gyanesh";
-     slamdata.recievername = "gouraw";
+     slamdata.sendername =  $route.current.params.sendermailid;
+     slamdata.recievername =$scope.slam.name;
 	 slamdata.senderid=$route.current.params.senderid;
 	 slamdata.recieverid=$route.current.params.recieverid;
 	 slamdata.sendermailid = $route.current.params.sendermailid;
@@ -56,7 +57,7 @@ $scope.redirectLogin = function(){
 	$('#myMailModal').appendTo("body") ;
 	$('#myMailModal').modal('hide');
 	 $location.path("/login");
-}
+};
 
 	}]);
 

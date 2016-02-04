@@ -4,7 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Freckle+Face);
 @import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
 @import url(https://fonts.googleapis.com/css?family=Pragati+Narrow);
-.table{
+.table,input,textarea,span{
   font-family: 'Pragati Narrow', cursive !important;
 }
 div {

@@ -220,8 +220,8 @@
           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">My Name</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+              <h4 class="timeline-title">Your Name</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Sounds silly but still for the record</small></p>
             </div>
             <div class="timeline-body">
               <p><div class="col-md-12">
@@ -258,7 +258,7 @@
               <h4 class="timeline-title">Birthday</h4>
             </div>
             <div class="timeline-body">
-              <input id="bday" class="form-control" type="text" ng-model="slam.bday" />
+              <input id="bday" class="form-control" type="date" ng-model="slam.bday" />
             </div>
           </div>
         </li>
@@ -266,33 +266,20 @@
           <div class="timeline-badge info"><i class="glyphicon glyphicon-floppy-disk"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Zodiac</h4>
+              <h4 class="timeline-title"> Your Status</h4>
             </div>
             <div class="timeline-body">
-              <input id="zodiac" class="form-control" type="text" ng-model="slam.zodiac" />
-              <hr>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Actionnnn</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
+              <input id="zodiac" class="form-control" type="text" ng-model="slam.zodiac" placeholder=" single   commited     complicated then how much ?-- 10%  -  90%" />
             </div>
           </div>
         </li>
         <li class="timeline-inverted">
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Secret</h4>
+              <h4 class="timeline-title">Your secret if you would like to share with me.</h4>
             </div>
             <div class="timeline-body">
-              <input id="secret" class="form-control" type="text" ng-model="slam.secret" />
+              <textarea  cols="30" rows="5" id="secret" class="form-control" type="text" ng-model="slam.secret" ></textarea>
             </div>
           </div>
         </li>
@@ -300,7 +287,7 @@
           <div class="timeline-badge warning"><i class="glyphicon glyphicon-thumbs-up"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Essentials</h4>
+              <h4 class="timeline-title">Things you can't live without</h4>
             </div>
             <div class="timeline-body">
               <input id="essential" class="form-control" type="text" ng-model="slam.essential" />
@@ -311,7 +298,7 @@
           <div class="timeline-badge danger"><i class="glyphicon glyphicon-heart"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Crush</h4>
+              <h4 class="timeline-title">Your Crush</h4>
             </div>
             <div class="timeline-body">
             <input id="crush" class="form-control" type="text" ng-model="slam.crush" />
@@ -323,7 +310,7 @@
           <div class="timeline-badge info"><i class="glyphicon glyphicon-star"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Greed</h4>
+              <h4 class="timeline-title">Things you are greedy about</h4>
             </div>
             <div class="timeline-body">
              <input id="greed" class="form-control" type="text" ng-model="slam.greed" />
@@ -334,7 +321,7 @@
           <div class="timeline-badge success"><i class="glyphicon glyphicon-time"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Earn</h4>
+              <h4 class="timeline-title">Best Friend</h4>
             </div>
             <div class="timeline-body">
              <input id="earn" class="form-control" type="text" ng-model="slam.earn" />
@@ -345,7 +332,7 @@
           <div class="timeline-badge warning"><i class="glyphicon glyphicon-home"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Favourite Movie</h4>
+              <h4 class="timeline-title">Your favourite dish</h4>
             </div>
             <div class="timeline-body">
             <input id="fav_movie" class="form-control" type="text" ng-model="slam.fav_movie" />
@@ -356,7 +343,7 @@
           <div class="timeline-badge danger"><i class="glyphicon glyphicon-fire"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Favourite Actor/Actress</h4>
+              <h4 class="timeline-title">Your wildest fantasy</h4>
             </div>
             <div class="timeline-body">
          <input id="fav_actor_actresses" class="form-control" type="text" ng-model="slam.fav_actor_actresses" />
@@ -367,7 +354,7 @@
           <div class="timeline-badge info"><i class="glyphicon glyphicon-picture"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Favourite Festival</h4>
+              <h4 class="timeline-title">Qualities in would be life parter</h4>
             </div>
             <div class="timeline-body">
               <input id="fav_festival" class="form-control" type="text" ng-model="slam.fav_festival" />
@@ -378,7 +365,7 @@
           <div class="timeline-badge success"><i class="glyphicon glyphicon-bookmark"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Favourite Website</h4>
+              <h4 class="timeline-title">Something special you would love to do for your parents</h4>
             </div>
             <div class="timeline-body">
             <input id="fav_website" class="form-control" type="text" ng-model="slam.fav_website" />
@@ -389,7 +376,7 @@
           <div class="timeline-badge warning"><i class="glyphicon glyphicon-road"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Favourite Holiday Spot</h4>
+              <h4 class="timeline-title">Most amazing place you have ever been to</h4>
             </div>
             <div class="timeline-body">
           <input id="fav_holiday_spot" class="form-control" type="text" ng-model="slam.fav_holiday_spot" />
@@ -400,7 +387,7 @@
           <div class="timeline-badge danger"><i class="glyphicon glyphicon-thumbs-up"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Memorable Moments</h4>
+              <h4 class="timeline-title">Your memorable moments in life</h4>
             </div>
             <div class="timeline-body">
               <textarea  cols="30" rows="5" id="memorable_moments" class="form-control" type="text" ng-model="slam.memorable_moments" ></textarea>
@@ -411,10 +398,10 @@
           <div class="timeline-badge info"><i class="glyphicon glyphicon-volume-off"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">People I hate</h4>
+              <h4 class="timeline-title">People you hate</h4>
             </div>
             <div class="timeline-body">
-             <input id="people_I_hate" class="form-control" type="text" ng-model="slam.people_I_hate" />
+             <input id="people_I_hate" class="form-control" type="text" ng-model="slam.people_I_hate" placeholder="Jitin     Manish      Rashesh" />
             </div>
           </div>
         </li>
@@ -433,7 +420,7 @@
           <div class="timeline-badge warning"><i class="glyphicon glyphicon-question-sign"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">My Ideal</h4>
+              <h4 class="timeline-title">Your 3 A.M friend </h4>
             </div>
             <div class="timeline-body">
              <input id="my_ideal" class="form-control" type="text" ng-model="slam.my_ideal" />
@@ -443,10 +430,10 @@
           <div class="timeline-badge danger"><i class="glyphicon glyphicon-plane"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">My Ambition</h4>
+              <h4 class="timeline-title">What could you have been if not what you are</h4>
             </div>
             <div class="timeline-body">
-              <input id="my_ambition" class="form-control" type="text" ng-model="slam.my_ambition" />
+              <input id="my_ambition" class="form-control" type="text" ng-model="slam.my_ambition" placeholder=" Astronaut      Model    Beggar  :)"/>
             </div>
           </div>
         </li>
@@ -454,7 +441,7 @@
           <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">First Impression</h4>
+              <h4 class="timeline-title">Your first impression of me</h4>
             </div>
             <div class="timeline-body">
              <textarea  cols="30" rows="5" id="first_impression" class="form-control" type="text" ng-model="slam.first_impression"></textareaid>
@@ -465,7 +452,7 @@
           <div class="timeline-badge success"><i class="glyphicon glyphicon-headphones"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Things About Me</h4>
+              <h4 class="timeline-title">Things you like about me, if any ? </h4>
             </div>
             <div class="timeline-body">
               <textarea cols="30" rows="5" id="things_about_me" class="form-control" type="text" ng-model="slam.things_about_me" ></textarea>
@@ -509,21 +496,21 @@
           <div class="timeline-badge success"><i class="glyphicon glyphicon-export"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <h4 class="timeline-title">Some Final Lines</h4>
+              <h4 class="timeline-title">Some final lines to sum up.</h4>
             </div>
             <div class="timeline-body">
            <textarea  cols="30" rows="5" id="final_line" class="form-control" type="text" ng-model="slam.final_line"></textarea>
             </div>
           </div>
         </li>
-           <li class="timeline-inverted">
+           <li class="timeline-inverted" ng-show="!showSubmit">
           <div class="timeline-badge warning"><i class="glyphicon glyphicon-send"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Ohh Finally </h4>
             </div>
             <div class="timeline-body">
-             <button type="button" class="btn btn-primary" ng-click="createSlamEntry()">
+             <button type="button"  class="btn btn-primary" ng-click="createSlamEntry()">
                 <i class="glyphicon glyphicon-send"></i>
              Submit</button>
             </div>
@@ -574,7 +561,7 @@
              
             <div class="modal-footer">
                 
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="redirectLogin()">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="redirectLogin()">Invite</button>
             </div>
         </div>
@@ -597,13 +584,13 @@
                 <h4 class="modal-title" id="myModalLabel">Select</h4>
             </div>
             <div class="modal-body">
-
+                <h4>Select from list to view details</h4>
              <div ng-repeat="item in slamList">
                <button class="btn btn-primary" ng-click="renderSelectedSlam(item)">{{item.name}}{{item.bday}}</button>
              </div>
             <div class="modal-footer">
                 
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="redirectLogin()">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="redirectLogin()">Invite</button>
             </div>
         </div>

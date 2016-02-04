@@ -4,15 +4,16 @@ angular.module('LoginModuleCtrl', [])
 /**
  * variables and objects
  */
-
+var i = 0;
 $scope.mail = {};
  $scope.profile={};
- $scope.authOps = false; 
+ $scope.authOps = false;
+ $scope.mailModalClass='modal-header';
 
 
 	    if ($route)
 	        console.log("refrencecode", $route)
-	    startApp();
+	    
 	    var auth2 = {};
 
 		var clientId = '651347370973-gjqgapp9jlpgj7eol94gku9rvvdr30p3.apps.googleusercontent.com';
@@ -41,6 +42,7 @@ $scope.mail = {};
 	                    $('#gConnect').show();
 	                }
 	                console.log('authResult', authResult);
+	                if(i== 0)
 	                 $scope.$apply();
 	            },
 
@@ -152,6 +154,13 @@ $scope.mail = {};
          * This method sets up the sign-in listener after the client library loads.
          */
 	    function startApp() {
+	    	 if(gapi && gapi.auth2 &&gapi.auth2.getAuthInstance() != null){
+	    	 	i=1;
+	                	auth2 = gapi.auth2.getAuthInstance();
+                              auth2.isSignedIn.listen(updateSignIn);
+                              auth2.then(updateSignIn());
+	                	return false;
+	                }
 	        gapi.load('auth2', function () {
 	            gapi.client.load('plus', 'v1').then(function () {
 	                gapi.signin2.render('signin-button', {
@@ -205,17 +214,19 @@ $scope.mail = {};
 /** [openMailmodal This contains description for mail to be sent]
 *@var {[type]} [description]
  */
-	    $scope.openMailmodal = function (data) {
+    $scope.openMailmodal = function (data) {
+    	$scope.mail.recieverMail = "";
+    	$scope.mail.name = "";
 	        $('#myMailModal').modal('toggle');
 	        $scope.mail.name = data.gd$name.gd$fullName.$t;
-           // $scope.mail.body = ""
+            $scope.mail.body = "";
             $scope.mail.recieverKey = data.gd$etag;
             $scope.mail.recieverMail = data.gd$email[0].address;
 
             console.log("maildata",$scope.mail);
 	    };
-	    $scope.sendInvitaionMail = function(){
 
+    $scope.sendInvitaionMail = function(){
 	    var maildata = 	{
 							"data": $scope.mail.body,
 							"senderid": $scope.mail.senderKey,
@@ -226,14 +237,19 @@ $scope.mail = {};
 						};
                 SlambookCollection.sendMail(maildata)
                 .success(function (data) {
-                    $('#myMailModal').modal('toggle');
-                   alert("success");
+                   $scope.mailSuccess = true;
+                   $scope.mailSubmitted = true;
+                   $scope.mailModalClass='modal-header modal-header-success';
                 },
                 function(data){
-                	alert("error");
+                	 $scope.mailSuccess = false;
+                	 $scope.mailSubmitted = true;
+                	  $scope.mailModalClass='modal-header modal-header-error';
                 }
                 );
-        }
-	    
+        };
 
+
+	    
+startApp();
 	}]);

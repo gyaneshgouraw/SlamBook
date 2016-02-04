@@ -26,6 +26,19 @@
         .signin-margin-left{
             margin-left: 10px !important;
         }
+
+           .modal-header{
+        background-color:#888 !important;
+        color:white;
+        }
+           .modal-header-success{
+        background-color:rgba(0, 190, 78, 0.9) !important;
+        color:white;
+        }
+        .modal-header-error{
+        background-color:red !important;
+        color:white;
+        }
        
   /*  .bkg {
             background: url(images/slam2.jpg);
@@ -101,34 +114,46 @@
 <div class="modal fade" id="myMailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div ng-class="mailModalClass">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Send Mail</h4>
             </div>
-            <div class="modal-body">
-            <form name="mailerForm">
-                   <div class="row">
-             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                 <div>Hello</div><span><b>{{mail.name}}</b></span>
-                
-             </div>  
-             <div class="col-md-6 pull-right">
-                  <input type="text" ng-model="mail.recieverMail" name="" id="input" pattern="" title="RecieverMail"ng-required="true">
-             </div>         
+            <div class="modal-body" ng-show="!mailSubmitted">
+                    <form name="mailerForm">
+                           <div class="row">
+                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                         <div>Hello</div><span><b ng-show="mail.name !=''">{{mail.name}}</b></span>
+                        
+                     </div>  
+                     <div class="col-md-6 pull-right">
+                     <span style="color:red" ng-show="!mail.recieverMail.length>0">Please enter email id.We could not retrieve it automatically</span>
+                          <input name="recievermail" type="email" class="form-control" ng-model="mail.recieverMail" name="" id="input" pattern="" title="RecieverMail"ng-required="true">
+                          <span style="color:red" ng-show="mailerForm.recievermail.$invalid&&mailerForm.recievermail.$dirty">Please enter valid email</span>
+                     </div>         
+                    </div>
+                    <div class="row form-group">
+                           <div class="col-md-12">
+                            <textarea rows="5" class="form-control" placeholder="Enter your message" ng-model="mail.body"></textarea>
+                        </div>
+                    </div>
+
+                    <div ng-show=></div>
+                    </form>
             </div>
-            <div class="row form-group">
-                   <div class="col-md-12">
-                    <textarea rows="5" class="form-control" placeholder="Enter your message" ng-model="mail.body"></textarea>
-                </div>
-            </div>
-            </form>
-          
-                
-            </div>
+            <div class="modal-body" ng-show="mailSubmitted">
+                            <div ng-show="mailSuccess">
+                                <h2> Success</h2>
+                                <p >Your friend has been intimated via email successfully.</p>
+                            </div>
+                            <div ng-show="!mailSuccess">
+                                 <h2>Error</h2>
+                                 <p >Something went wrong!.Your friend couldnot be intimated via email. Please try again.</p> 
+                            </div>
+                        </div>
             <div class="modal-footer">
                 
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clearmailData()">Close</button>
-                <button type="button" class="btn btn-primary" ng-disabled="mailerForm.$invalid" ng-click="sendInvitaionMail()">Send</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="mailSubmitted=false;mailSuccess=false;mailModalClass='modal-header'">Close</button>
+                <button ng-show="!mailSubmitted" type="button" class="btn btn-primary" ng-disabled="mailerForm.$invalid" ng-click="sendInvitaionMail()">Send</button>
             </div>
         </div>
     </div>
