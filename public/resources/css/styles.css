@@ -4,11 +4,57 @@
 @import url(https://fonts.googleapis.com/css?family=Freckle+Face);
 @import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
 @import url(https://fonts.googleapis.com/css?family=Pragati+Narrow);
-.table,input,textarea,span{
+button,.fillslam,.navbar{
+    font-family: 'Freckle Face';
+}
+.table,input,textarea,span,section,.test{
   font-family: 'Pragati Narrow', cursive !important;
 }
-div {
-    font-family: 'Freckle Face' !important;
+.yb
+{
+  font-family: 'Special Elite';
+ 
+}
+
+.thumb {
+  width: 64px;
+  display: inline-block;
+}
+.thumb-lg {
+  width: 128px;
+  display: inline-block;
+}
+.thumb-md {
+  width: 90px;
+  display: inline-block;
+}
+.thumb-xs {
+  width: 18px;
+  display: inline-block;
+}
+.thumb-sm {
+  width: 36px;
+  display: inline-block;
+}
+.thumb-wrapper {
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+.thumb img,
+.thumb-xs img,
+.thumb-sm img,
+.thumb-md img,
+.thumb-lg img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.m-l {
+  margin-left: 15px;
+}
+.clear {
+     display: block; 
+    overflow: hidden;
 }
 #searchQuery{
     background: none repeat scroll 0 0 #FFF;
@@ -236,3 +282,4 @@ body{
   width: 200px;
   text-align: center;
 }
+

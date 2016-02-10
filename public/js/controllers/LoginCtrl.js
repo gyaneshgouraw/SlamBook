@@ -200,30 +200,84 @@ $scope.mail = {};
 	    $scope.renderFriends = function (data) {
 	        $scope.people = data;
 	        $scope.loading = false;
-	        $scope.entryLimit = 15;
+	        $scope.entryLimit = 12;
 	        $scope.currentPage = 1; //current page
 	        $scope.maxSize = 5; //pagination max size
 	        $scope.noOfPages = Math.ceil($scope.people.length / $scope.entryLimit);
 	        $scope.$watch('search', function (term) {
 	            // Create $scope.filtered and then calculat $scope.noOfPages, no racing!
 	            $scope.peopleFiltered = filterFilter($scope.people, term);
+	            assignImageCount()
 	            $scope.noOfPages = Math.ceil($scope.peopleFiltered.length / $scope.entryLimit);
 	        });
 
 	    }
+function assignImageCount(){
+	var z= 1;
+   	for(var i= 0 ; i < $scope.peopleFiltered.length;i++){
+   	if(z< 6){
+   		$scope.peopleFiltered[i].dispImageCount = z;
+   		
+   		switch(z) {
+				case 1:
+				$scope.peopleFiltered[i].btncolor = 'primary';
+				$scope.peopleFiltered[i].backColor ='#B2CB9EFF';
+				break;
+				case 2:
+				$scope.peopleFiltered[i].btncolor = 'danger';
+				$scope.peopleFiltered[i].backColor ='#F7D2D2';
+				break;
+				 case 3:
+				$scope.peopleFiltered[i].btncolor = 'info';
+				$scope.peopleFiltered[i].backColor ='##CEE8FF';
+				break;
+				 case 4:
+				$scope.peopleFiltered[i].btncolor = 'warning';
+				$scope.peopleFiltered[i].backColor ='#FFFF86';
+				break;
+				 case 5:
+				$scope.peopleFiltered[i].btncolor = 'success';
+				$scope.peopleFiltered[i].backColor ='rgba(101, 255, 101, 0.55)';
+				break;
+				default:
+				$scope.peopleFiltered[i].btncolor = 'info';
+				$scope.peopleFiltered[i].backColor ='#ddd';
+			}
+			z++;
+   	}
+   	else{
+   		$scope.peopleFiltered[i].dispImageCount = z;
+   		$scope.peopleFiltered[i].btncolor = 'default'
+   		$scope.peopleFiltered[i].backColor ='#DCDBDB';
+   		z=1;
+   	}
+   }
+}
 /** [openMailmodal This contains description for mail to be sent]
 *@var {[type]} [description]
  */
     $scope.openMailmodal = function (data) {
-    	$scope.mail.recieverMail = "";
-    	$scope.mail.name = "";
+    	if(data !== undefined){
+	    	$scope.mail.recieverMail = "";
+	    	$scope.mail.name = "";
 	        $('#myMailModal').modal('toggle');
 	        $scope.mail.name = data.gd$name.gd$fullName.$t;
             $scope.mail.body = "";
             $scope.mail.recieverKey = data.gd$etag;
             $scope.mail.recieverMail = data.gd$email[0].address;
-
+            console.log("maildata",$scope.mail);	
+    	}
+    	else{
+			$scope.mail.recieverMail = "";
+	    	$scope.mail.name = "";
+	        $('#myMailModal').modal('toggle');
+	        $scope.mail.name = "Friend";
+            $scope.mail.body = "";
+            $scope.mail.recieverKey = "1234";
+           // $scope.mail.recieverMail = data.gd$email[0].address; // will directly get from html
             console.log("maildata",$scope.mail);
+    	}
+    	
 	    };
 
     $scope.sendInvitaionMail = function(){

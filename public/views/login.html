@@ -11,7 +11,7 @@
           margin-top: 250px;
         }
         .topmargin2{
-         height: 700px;
+        /* height: 700px;*/
         }
         body{
       color:grey;
@@ -39,16 +39,102 @@
         background-color:red !important;
         color:white;
         }
-       
+       .table,input,textarea,span,section,.test{
+         font-family: 'Pragati Narrow', cursive !important;
+        }
+        .pad{
+            padding: 5px
+        }
   /*  .bkg {
             background: url(images/slam2.jpg);
         }*/
+
+.yb h2,.yb p{
+  font-size:100%;
+  font-weight:normal;
+}
+.yb ul,.yb li{
+  list-style:none;
+}
+.yb ul{
+ /* overflow:hidden;*/
+  padding:3em;
+}
+.yb ul li a{
+  text-decoration:none;
+  color:#697169;
+  background:#ffc;
+  display:block;
+  height:12em;
+  width:12em;
+  padding:1em;
+  z-index:10;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+/*.yb ul li{
+  margin:1em;
+  float:left;
+}*/
+/*.yb ul li h2{
+  font-size:140%;
+  font-weight:bold;
+  padding-bottom:10px;
+}*/
+.yb ul li p{
+  font-size:80%;
+}
+.yb ul li a{
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+.yb ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+.yb ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
+}
+.yb ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+.yb ul li a:hover,.yb ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+.yb ol{text-align:center;}
+.yb ol li{display:inline;padding-right:1em;}
+.yb ol li a{color:#697169;} 
 </style>
 <div class="row" ng-show="!authOps">
     <div class="col-md-6 topmargin2 bkg">
-        <div class="page-header">
+        <div class="">
           <div>
-              <img src="images/quote1.jpg" height="600px">
+              <img src="images/quote1.jpg" height="500px">
               
           </div>
         </div>
@@ -68,36 +154,74 @@
 </div>
 
 <div id="authOps"  ng-show="authOps" class="topmargin2">
-    <div class="col-md-2 thumbnail">
-        <div id="profile">
-            <p class="thumbnail"><img src="{{profile.img}}"></p>
-            <p><i class="fa fa-male fa-lg">    </i><span style="margin-left:5px">{{profile.displayName}}</span></p>
-        </div>
-        <button id="signOut" class="btn btn-warning" ng-click="Logout()">
-        <i class="fa fa-sign-out fa-lg"> </i> Sign Out</button>
-    </div>
+        <div class="col-md-2">
+            <div class=" thumbnail">
+                <div id="profile">
+                    <p class="thumbnail"><img src="{{profile.img}}"></p>
+                    <p><i class="fa fa-male fa-lg">    </i><span style="margin-left:5px">{{profile.displayName}}</span></p>
+                </div>
+            <button id="signOut" class="btn btn-warning" ng-click="Logout()">
+            <i class="fa fa-sign-out fa-lg"> </i> Sign Out</button>
+            </div>
+            <div id="sticky" class="row yb">
+                <ul>
+                    <li>
+                      <a href="#" style="background:#9A3457;color:white" >
+                      <i class="glyphicon glyphicon-paperclip pull-right"></i>
+                        <h2><b>Usgae:</b></h2>
+                        <p> <i class="glyphicon glyphicon-tags pull-left"> </i>&nbsp; Click on any one of your friend.</p>
+                        <p><i class="glyphicon glyphicon-tags pull-left"> </i>&nbsp;Send him the invitation with your message.</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" style="background:#235658;color:white">
+                        <p><i class="glyphicon glyphicon-tags pull-left"> </i>&nbsp; Your Friend will be intimated via email</p>
+                        <p><i class="glyphicon glyphicon-tags pull-left"> </i>&nbsp; When he fills the slambook you will be notified via email too.</p>
+                         <p><i class="glyphicon glyphicon-tags pull-left"></i>&nbsp; Follow the link in mail to view your slambook</p>
+                      </a>
+                    </li>
+                 </ul>
+            </div>
+     </div>
+
     <div class="col-md-10">
         <div class="thumbnail">
             <input type="text" id="searchQuery" class="form-control" style="margin-top:10px;border:1px solid #888888" placeholder="You can enter either Name / Mobile / Phone / Email / Address to search" ng-model="search">
+            <button  class="btn btn-primary btn-xs pull-right"ng-click="openMailmodal()">Send Manually</button>
             <div class="table-responsive">
                 <table class="table table-condensed table">
-                    <thead>
+                   <!--  <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Last Updated</th>
                         </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
-                        <tr ng-repeat="person in peopleFiltered| startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit " ng-click="openMailmodal(person)">
+                       <!--  <tr ng-repeat="person in peopleFiltered| startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit " ng-click="openMailmodal(person)">
                             <td>{{person.gd$name.gd$fullName.$t}}</td>
                             <td>{{ person.gd$email[0].address}}</td>
                             <td>{{person.updated.$t}}</td>
-                        </tr>
+                        </tr> -->
+
+                          <div class="col-md-4 test"ng-repeat="person in peopleFiltered| startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit " ng-click="openMailmodal(person)"> 
+                                 <section class="panel panel-info">
+                                           <div class="panel-body pad" style="box-shadow: 2px 2px 8px #888888">
+                                             <a href="#" class="thumb pull-right m-l">
+                                               <img src="images/avatar{{person.dispImageCount}}.jpg" class="img-circle">
+                                             </a>
+                                             <div class="clear">
+                                               <a href="#" class="text-info">{{person.gd$name.gd$fullName.$t}} <i class="icon-twitter"></i></a>
+                                               <small class="block text-muted">{{person.dispImageCount}}</small>
+                                               <a href="#" class="btn btn-xs btn-{{person.btncolor}} m-t-xs">{{ person.gd$email[0].address}}</a>
+                                             </div>
+                                           </div>
+                                 </section>
+                 </div>
                     </tbody>
                 </table>
-
-                <pagination data-boundary-links="true"
+<div>
+     <pagination data-boundary-links="true"
                             data-num-pages="noOfPages"
                             data-current-page="currentPage"
                             max-size="maxSize"
@@ -105,8 +229,24 @@
                             data-previous-text="&laquo;"
                             data-next-text="&raquo;">
                 </pagination>
+</div>
+               
             </div>
         </div>
+              <!--   <div class="col-md-4"> 
+                     <section class="panel panel-info">
+                               <div class="panel-body">
+                                 <a href="#" class="thumb pull-right m-l">
+                                   <img src="images/avatar.jpg" class="img-circle">
+                                 </a>
+                                 <div class="clear">
+                                   <a href="#" class="text-info">@Mike Mcalidek <i class="icon-twitter"></i></a>
+                                   <small class="block text-muted">2,415 followers / 225 tweets</small>
+                                   <a href="#" class="btn btn-xs btn-success m-t-xs">Follow</a>
+                                 </div>
+                               </div>
+                     </section>
+                 </div> -->
 
     </div>
 </div>
@@ -158,5 +298,6 @@
         </div>
     </div>
 </div>
+
  <my-test ng-show="false"></my-test>
 
