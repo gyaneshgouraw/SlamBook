@@ -124,14 +124,16 @@ function handleSayHello(req, res) {
         }
     });
 var mailOptions ={};
+var template={path: "<!DOCTYPE html><html><body><img src='http://localhost:3003/images/avatar1.jpg'/></body></html>"}
 if(req && req.flag =="slamsubmit"){
+	var url="https://myslambook.herokuapp.com/login/disp/slam/"+req.recievermailid+"/"+req.sendermailid;
 	 mailOptions = {
     from: 'gyaneshgouraw110899@gmail.com', // sender address//jitibisht.bisht@gmail.com
     to: req.reciever, // list of receivers//mohanmanis@gmail.com
     subject: 'Slam Book Filled', // Subject line
     text: 'Slambook link', //, // plaintext body
-    html:req.data+"</br>"+
-     "<a href=https://myslambook.herokuapp.com/login/disp/slam/"+req.recievermailid+"/"+req.sendermailid+"> Click to visit filled slambook page✔</a>" // You can choose to send an HTML body instead
+    html:'<html> <head> <style>a{color: #44B3C5;}</style> </head> <body> <div style="border:1px solid black;height:100px;background:black" ><img src="https://myslambook.herokuapp.com/images/slam11.png" height="100px"/><img src="https://myslambook.herokuapp.com/images/checkout1.gif" height=25px/></div><div style="border:1px solid #4C4A4A;background:#6D4739;height:300px;color:white"> <div style="width:50%;height:100%;float:left"> <div style="margin:30px"> <p>Hello,</p><p>'+req.sendermailid+'</p><p>We have slambook filled for you by your friend '+req.recievermailid+'</p><p>'+req.data+'</p><p>Please click on given link to visit the page</p><p><a href='+url+'> Click here to visit slambook page✔</a></p></div></div><div style="width:40%;float:left;height:100%"><img src="https://myslambook.herokuapp.com/images/checkout1.gif" height=125px/><img src="https://myslambook.herokuapp.com/images/quote1.jpg" height=300px/></div></div><div style="border:1px solid black;height:100px;background:black;color:white" > <div style="margin:20px"> <p> <small><a href="https://myslambook.herokuapp.com/"> myslambook.herokuapp.com</a></small> </p></div></div></body></html>'
+     
 };
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
@@ -144,13 +146,14 @@ if(req && req.flag =="slamsubmit"){
 	});
 }
 	else{
+		var url="https://myslambook.herokuapp.com/login/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid; // You can choose to send an HTML body instead
 		  mailOptions = {
     from: 'gyaneshgouraw110899@gmail.com', // sender address//jitibisht.bisht@gmail.com
     to: req.body.reciever, // list of receivers//mohanmanis@gmail.com
     subject: 'Please Fill my slam book', // Subject line
     text: 'Slambook link', //, // plaintext body
-    html:req.body.data+"</br>"+
-     "<a href=https://myslambook.herokuapp.com/login/"+ req.body.senderid+"/"+req.body.recieverid+"/"+req.body.sendermailid+"/"+req.body.recievermailid+"> Click to visit slambook page✔</a>" // You can choose to send an HTML body instead
+      html:'<html> <head> <style>a{color: #44B3C5;}</style> </head> <body> <div style="border:1px solid black;height:100px;background:black" ><img src="https://myslambook.herokuapp.com/images/slam11.png" height="100px"/><img src="https://myslambook.herokuapp.com/images/checkout1.gif" height=25px/></div><div style="border:1px solid #4C4A4A;background:#6D4739;height:300px;color:white"> <div style="width:50%;height:100%;float:left"> <div style="margin:30px"> <p>Hello,</p><p>'+req.body.recievermailid+'</p><p>We have slambook invitation for you sent by your friend '+req.body.sendermailid+'</p><p>He says</p><p>'+req.body.data+'</p><p>Please click on given link to visit the page</p><p><a href='+url+'> Click here to visit slambook page✔</a></p></div></div><div style="width:40%;float:left;height:100%"><img src="https://myslambook.herokuapp.com/images/checkout1.gif" height=125px/><img src="https://myslambook.herokuapp.com/images/quote1.jpg" height=300px/></div></div><div style="border:1px solid black;height:100px;background:black;color:white" > <div style="margin:20px"> <p> <small><a href="https://myslambook.herokuapp.com/"> myslambook.herokuapp.com</a></small> </p></div></div></body></html>'
+     
 };
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
